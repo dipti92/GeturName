@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './Compo/Header';
+import SearchBox from './Compo/SearchBox';
+import ResultContainer from './Compo/ResultContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const name = require('@rstacruz/startup-name-generator');
+
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      header_expand : true,
+      suggested : []
+    }
+  }
+
+  handleInput = (inputText) =>{
+    this.setState({header_expand : !inputText,
+    suggested : inputText ? name(inputText) : []
+  });
+    //we can directly put boolean operator on string if it is empty it returns false
+    //else true so here no need to put .length method
+  };
+
+ render(){
+    return (
+      <div>
+        <Header headExpand = {this.state.header_expand}/>
+        <SearchBox onInput = {this.handleInput}/>
+        <ResultContainer suggested = {this.state.suggested}/>
+      </div>
+    );
+  }
 }
 
 export default App;

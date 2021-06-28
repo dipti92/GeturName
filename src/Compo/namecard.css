@@ -1,0 +1,25 @@
+.card-cont{
+    background: rgb(253, 223, 90);
+    margin: 10px 15px;
+    min-width: 75px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(214, 207, 140, 0.863);
+    transition: background 0.35s;
+    color: rgb(56, 13, 13);
+}
+
+.card-cont:hover{
+    background: rgb(255, 253, 243);
+    box-shadow:0px 0px 5px rgba(236, 255, 236,0.2);
+}
+
+.result-name{
+    margin:0;
+    font-weight: 100;
+}
+
+.clink{
+    text-decoration: none;
+}
+
